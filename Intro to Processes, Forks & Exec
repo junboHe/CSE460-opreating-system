@@ -1,1 +1,33 @@
 http://cse.csusb.edu/yzhang/cse460/labs/03.html
+
+
+// use of fork() 
+#include <stdio.h>
+#include <sys/types.h>
+#include <unistd.h>
+
+int main(void)
+{
+   printf("Hello \n");
+   fork();
+   printf("bye\n");
+   return 0;
+}
+
+//Hello - is printed once by parent process
+//bye - is printed twice, once by the parent and once by the child
+
+//If the fork system call is successful a child process is produced that continues execution at the 
+//point where it was called by the parent process.
+
+//After the fork system call, both the parent and child processes are running and continue their 
+//execution at the next statement in the parent process.
+
+//A summary of fork() return values follows:
+
+//fork_return > 0: this is the parent
+//fork_return == 0: this is the child
+//fork_return == -1: fork() failed and there is no child. See code below to see how to check errors.
+
+
+// pid_t pid: processs ID, pit_t 类似于 int，使变量初始化
